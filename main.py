@@ -202,4 +202,4 @@ def eliminar_dato(dato_id):
         return f"Error al eliminar datos: {response.text}"
 
 if __name__ == '__main__':
-    app.run(debug=True, port=1200)
+    app.run()
