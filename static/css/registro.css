@@ -1,0 +1,128 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+body {
+    background-color: #121212;
+    color: #00aaff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    width: 80%;
+    max-width: 900px;
+    text-align: center;
+}
+
+header {
+    margin-bottom: 30px;
+}
+
+h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    color: #ff4b4b;
+}
+
+.console {
+    background-color: #1a1a1a;
+    border: 2px solid #00aaff;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: left;
+    position: relative;
+    font-size: 1.2rem;
+    color: #00aaff;
+    overflow: hidden;
+}
+
+.console-header {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 10px;
+}
+
+.console-header .dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+.console-header .red {
+    background-color: #ff4b4b;
+}
+
+.console-header .yellow {
+    background-color: #ffae00;
+}
+
+.console-header .green {
+    background-color: #4caf50;
+}
+
+.console-body {
+    height: 300px;
+    overflow-y: auto;
+    padding-right: 20px;
+}
+
+.login h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #ff4b4b;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #ff4b4b;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    background-color: #1a1a1a;
+    border: 2px solid #00aaff;
+    border-radius: 5px;
+    color: #00aaff;
+}
+
+.button-group {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+button, .register-button {
+    background-color: #00aaff;
+    color: #121212;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+}
+
+button:hover, .register-button:hover {
+    background-color: #0088cc;
+}
+
+footer {
+    margin-top: 30px;
+    font-size: 0.9rem;
+    color: #00aaff;
+}

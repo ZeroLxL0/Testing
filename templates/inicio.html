@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Configuración</title>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/Sombreo.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/ventanas.js') }}"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/configuracion.css') }}">
+</head>
+<body>
+    <style>
+        .highlight {
+            background-color: red;
+        }
+    </style>
+    <h1>Bienvenido a la página de configuración de dispositivos</h1>
+    <div>
+        <header>
+            <h1>Hack The System</h1>
+        </header>
+        <main>
+            <section>
+                <div>
+                    <h2>Configuración de dispositivos</h2>
+                    <form action="/guarda_datos" method="POST">
+                        <div>
+                            <label for="ip">IP del dispositivo:</label>
+                            <input type="text" id="ip" name="ip" required>
+                        </div>
+                        <div>
+                            <label for="nom_dis">Nombre del dispositivo:</label>
+                            <input type="text" id="nom_dis" name="nom_dis" required>
+                        </div>
+                        <div>
+                            <label for="nom_soft">Nombre del software:</label>
+                            <input type="text" id="nom_soft" name="nom_soft" required>
+                        </div>
+                        <div>
+                            <label for="version">Versión:</label>
+                            <input type="text" id="version" name="version" required>
+                        </div>
+                        <div>
+                            <label for="fecha_inst">Fecha de instalación:</label>
+                            <input type="date" id="fecha_inst" name="fecha_inst" required>
+                        </div>
+                        <div>
+                            <label for="fecha_actua">Fecha de actualización:</label>
+                            <input type="date" id="fecha_actua" name="fecha_actua" required>
+                        </div>
+                        <div>
+                            <label for="nom_prove">Proveedor:</label>
+                            <input type="text" id="nom_prove" name="nom_prove" required>
+                        </div>
+                        <div>
+                            <label for="estado">Estado:</label>
+                            <div>
+                                <input type="radio" id="activo" name="estado" value="Activo" required>
+                                <label for="activo">Activo</label>
+                                <input type="radio" id="inactivo" name="estado" value="Inactivo">
+                                <label for="inactivo">Inactivo</label>
+                            </div>
+                        </div>
+                        <div>
+                            <button type="submit">Añadir</button>
+                        </div>
+                        <span id="success-message" style="display: none;">Datos ingresados con éxito</span>
+                    </form>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <div>
+        <h2>Datos de la base de datos:</h2>
+        <div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>IP</th>
+                        <th>Nombre Dispositivo</th>
+                        <th>Nombre Software</th>
+                        <th>Versión</th>
+                        <th>Fecha Instalación</th>
+                        <th>Fecha Actualización</th>
+                        <th>Proveedor</th>
+                        <th>Estado</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for dato in datos %}
+                    <tr>
+                        <form action="/modificar_dato/{{ dato._id }}" method="POST">
+                            <td><input type="text" name="ip" value="{{ dato.IP }}"></td>
+                            <td><input type="text" name="nom_dis" value="{{ dato.Nombre_Dispositivo }}"></td>
+                            <td><input type="text" name="nom_soft" value="{{ dato.Nombre_Software }}"></td>
+                            <td><input type="text" name="version" value="{{ dato.Version }}"></td>
+                            <td><input type="text" name="fecha_inst" value="{{ dato.Fecha_Instalacion }}"></td>
+                            <td><input type="text" name="fecha_actua" value="{{ dato.Fecha_Actualizacion }}"></td>
+                            <td><input type="text" name="nom_prove" value="{{ dato.Proveedor }}"></td>
+                            <td><input type="text" name="estado" value="{{ dato.Estado }}"></td>
+                            <td class="btn-container">
+                                <button type="submit">Guardar</button>
+                                <form action="/eliminar_dato/{{ dato._id }}" method="POST" style="display:inline;">
+                                   <td>
+                                       <form action="/eliminar_dato/{{ dato._id.$oid }}" method="POST" style="display:inline;">
+                                           <button type="submit" onclick="return confirm('¿Estás seguro de que deseas eliminar este dato?');">Eliminar</button>
+
+                                </form>
+                            </td>
+                        </form>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Hack The System. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>

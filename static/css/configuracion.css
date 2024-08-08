@@ -1,0 +1,142 @@
+/* Estilo general */
+body {
+    background-color: #121212;
+    color: #E0E0E0;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2 {
+    color: #FF6F61;
+    text-align: center;
+}
+
+header {
+    background-color: #1F1B24;
+    padding: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2rem;
+}
+
+main {
+    padding: 2rem;
+}
+
+section {
+    background-color: #1E1E1E;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    margin-bottom: 2rem;
+}
+
+label {
+    display: block;
+    margin: 0.5rem 0;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="date"] {
+    width: 100%;
+    padding: 0.5rem;
+    border-radius: 5px;
+    border: none;
+    margin-bottom: 1rem;
+    background-color: #333;
+    color: #E0E0E0;
+}
+
+input[type="radio"] {
+    margin-right: 0.5rem;
+}
+
+button {
+    background-color: #FF6F61;
+    color: white;
+    padding: 0.7rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #FF3B30;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 2rem 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+th, td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #333;
+}
+
+th {
+    background-color: #333;
+    color: #FF6F61;
+}
+
+tr:hover {
+    background-color: #1F1B24;
+}
+
+footer {
+    background-color: #1F1B24;
+    color: #E0E0E0;
+    text-align: center;
+    padding: 1rem;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+.btn-container {
+    display: flex;
+    gap: 0.5rem;
+}
+
+form[action*="/eliminar_dato"] {
+    display: inline;
+}
+
+.highlight {
+    background-color: #FF3B30;
+    color: white;
+}
+
+/* Animaciones simples */
+button, input[type="text"], input[type="date"] {
+    transition: all 0.3s ease;
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+
+#success-message {
+    display: block;
+    margin-top: 1rem;
+    color: #4CAF50; /* Color verde */
+    font-weight: bold;
+    text-align: center;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
